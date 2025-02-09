@@ -16,6 +16,12 @@ class LoginScreen extends StatelessWidget {
 
   Future<String?> recouverPassord(String data){
     return Future.delayed(LodingTime).then((value)=>null);
+  } 
+
+  // sing up
+
+  Future<String?> singup(SignupData data){
+    return Future.delayed(LodingTime).then((value)=>null);
   }
 
   @override
@@ -23,6 +29,7 @@ class LoginScreen extends StatelessWidget {
     return FlutterLogin(
       onLogin: FeachUther, 
       onRecoverPassword:recouverPassord,
+      onSignup: singup,
        );
   }
 }
