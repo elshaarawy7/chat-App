@@ -1,3 +1,4 @@
+import 'package:chat_app/pages/logIn.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     home: Scaffold(
-      backgroundColor: Colors.amber,
-     ),
+     home: LoginScreen(),
     );
   }
 }
