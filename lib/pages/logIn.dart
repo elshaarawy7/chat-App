@@ -1,3 +1,4 @@
+import 'package:chat_app/pages/home_screan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 
@@ -11,7 +12,7 @@ class LoginScreen extends StatelessWidget {
       // بعد تسجيل الدخول بنجاح
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) =>  ChatScreen()),
       );
       return null;
     });
@@ -36,15 +37,3 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-// صفحة الـ HomeScreen اللي هينتقل ليها بعد تسجيل الدخول
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
-      body: const Center(child: Text("Welcome to Home Page!")),
-    );
-  }
-}
