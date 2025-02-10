@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+class ChatScreen extends StatefulWidget {
+  @override
+  State<ChatScreen> createState() => _ChatScreenState();
+}
 
-class ChatScreen extends StatelessWidget {
+class _ChatScreenState extends State<ChatScreen> {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  CollectionReference users = FirebaseFirestore.instance.collection('messages');
+
   final List<String> messages = [
     "hello im a new user what about you",
     "hello im a new user what about you sadfasdf",
@@ -8,6 +17,12 @@ class ChatScreen extends StatelessWidget {
     "hello im a new user what about you sadfasdf",
     "hello im a new user what about you",
   ];
+
+  void seandMasseg(String data){
+    setState(() {
+      messages.add(data);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +75,9 @@ class ChatScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    onSubmitted: (data) {
+                      messages.add(data);
+                    },
                     decoration: InputDecoration(
                       hintText: "Type a message...",
                       border: OutlineInputBorder(
