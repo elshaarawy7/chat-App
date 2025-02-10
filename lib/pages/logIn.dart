@@ -3,33 +3,48 @@ import 'package:flutter_login/flutter_login.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
-  // log i time 
-  Duration get LodingTime => const Duration(milliseconds: 2000);
 
-  // log in 
+  Duration get loadingTime => const Duration(milliseconds: 2000);
 
-  Future<String?>FeachUther(LoginData data){
-    return Future.delayed(LodingTime).then((value) => null);
+  Future<String?> fetchUser(LoginData data, BuildContext context) {
+    return Future.delayed(loadingTime).then((_) {
+      // بعد تسجيل الدخول بنجاح
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+      return null;
+    });
   }
 
-  // forget paswoord
+  Future<String?> recoverPassword(String data) {
+    return Future.delayed(loadingTime).then((_) => null);
+  }
 
-  Future<String?> recouverPassord(String data){
-    return Future.delayed(LodingTime).then((value)=>null);
-  } 
-
-  // sing up
-
-  Future<String?> singup(SignupData data){
-    return Future.delayed(LodingTime).then((value)=>null);
+  Future<String?> signup(SignupData data) {
+    return Future.delayed(loadingTime).then((_) => null);
   }
 
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      onLogin: FeachUther, 
-      onRecoverPassword:recouverPassord,
-      onSignup: singup,
-       );
+      theme: LoginTheme(primaryColor: Colors.blue),
+      onLogin: (data) => fetchUser(data, context), // تمرير الـ context
+      onRecoverPassword: recoverPassword,
+      onSignup: signup,
+    );
+  }
+}
+
+// صفحة الـ HomeScreen اللي هينتقل ليها بعد تسجيل الدخول
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Home")),
+      body: const Center(child: Text("Welcome to Home Page!")),
+    );
   }
 }
