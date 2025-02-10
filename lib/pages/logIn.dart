@@ -29,7 +29,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      theme: LoginTheme(primaryColor: Colors.blue),
+      theme: LoginTheme(primaryColor: Colors.teal),
       onLogin: (data) => fetchUser(data, context), // تمرير الـ context
       onRecoverPassword: recoverPassword,
       onSignup: signup,

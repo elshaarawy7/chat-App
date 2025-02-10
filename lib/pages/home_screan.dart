@@ -14,10 +14,15 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.chat, color: Colors.white),
             SizedBox(width: 8),
-            Text("Chat"),
+            Text("Chat" , style: TextStyle(
+              color: Colors.white ,
+              fontSize: 20 ,
+              fontWeight: FontWeight.bold,
+            ),),
           ],
         ),
         centerTitle: true,
